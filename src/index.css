@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+header {
+  height: 12%;
+  display: flex;
+  align-items: center;
+  background: #6441A5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+header > img {
+  padding: 10px;
+  height: 80%;
+  margin-left: 10%;
+}
+
+header > p {
+  font-family: VT323, monospace;
+  color: whitesmoke;
+  font-size: 30px;
+  margin-left: 40px;
+}
+
+.memeRoot{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+}
+
+.meme {
+  position: relative;
+  width: 90%;
+  margin: 20px 0;
+}
+
+.meme > img {
+  width: 100%;
+}
+
+.meme-form {
+  width: 20%;
+  align-items: center;
+  display: flex;
+  margin: 20px 100px;  
+  flex-direction: column;
+}
+
+.meme-form > label {
+  display: flex;
+  font-size:20px;
+  height: 40px;
+  vertical-align: bottom;
+}
+
+.meme-form > input, .meme-form > label > input {
+  height: 40px;
+  margin: 2px 0;
+}
+
+.meme-form > label > input{
+  width: 50%;
+  align-self: stretch;
+  margin-left: auto;
+}
+
+.meme-form > button {
+  border: none;
+  font-family: VT323, monospace;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  color: white;
+  background: #6441A5;
+}
+
+.meme-form > button, .meme-form > input, .meme-form > label{
+  width: 100%;
+}
+
+
+.meme-form > label > span {
+  vertical-align: super;
+}
+
+.meme-form > input {
+  font-family: VT323, monospace;
+  font-size: 20px; 
+  text-align: center; 
+}
+
+.meme-form > input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+font-family: VT323, monospace;
+font-size: 20px;
+text-align: cen
+}
+.meme-form > input::-moz-placeholder { /* Firefox 19+ */
+font-family: VT323, monospace;
+font-size: 20px;
+text-align: cen
+}
+.meme-form > input:-ms-input-placeholder { /* IE 10+ */
+font-family: VT323, monospace;
+font-size: 20px;
+text-align: cen
+}
+.meme-form > input:-moz-placeholder { /* Firefox 18- */
+font-family: VT323, monospace;
+font-size: 20px;
+text-align: cen
+}
+
+canvas{
+  border:1px solid #000000;
+}
