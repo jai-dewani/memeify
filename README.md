@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). What to contribute? Check the issues section and let me know if you are intresting in contributing in something or reach out to me on [Twitter](https://twitter.com/jai_dewani)
 
 ## Available Scripts
 
