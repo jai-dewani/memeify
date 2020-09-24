@@ -4,6 +4,14 @@ import DisplayMeme from './displayMeme'
 class MemeGenerator extends Component {
     constructor() {
         super()
+        // Add a texts array insted of different text options,
+        // Use this array to store objects having details like 
+        // Text, color, BColor, size, font?maybe
+
+        // Create a draw function which will be called after every change
+
+        // http://jsfiddle.net/m1erickson/9xAGa/
+        
         this.state = {
             topText: "",
             topColor: "#000000",
