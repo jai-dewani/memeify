@@ -60,7 +60,13 @@ function displayMeme(props){
                     />
                 </label>
                 <br />
-                <button>Gen</button>
+                <button type="submit">Gen</button>
+                <p>or</p>
+                <button className="cutom-file-upload" type="button" onClick={() => {
+                    const input = document.getElementById('file-upload');
+                    input.click();
+                }}>Upload Your Photo</button>
+                <input id="file-upload" type="file" onChange={props.handleFileChange} />
             </form>
             <div className="meme">
                 <center>

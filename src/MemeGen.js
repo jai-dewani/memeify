@@ -1,6 +1,17 @@
 import React, { Component } from "react"
 import DisplayMeme from './displayMeme'
 
+const checkImageHeight = (width, height, maxHeight) => {
+    let newheight = height
+    let newwidth = width
+    if (height>maxHeight){
+        let ratio = maxHeight/height
+        newwidth = width * ratio
+        newheight = maxHeight
+    }
+    return {newheight, newwidth}
+}
+
 class MemeGenerator extends Component {
     constructor() {
         super()
@@ -33,6 +44,7 @@ class MemeGenerator extends Component {
         this.handleColorChnage = this.handleColorChnage.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleFileChange = this.handleFileChange.bind(this)
     }
 
     componentDidMount() {
@@ -51,13 +63,7 @@ class MemeGenerator extends Component {
         const context = myCanvas.getContext("2d");
         const img = new Image()
         const { url, width, height, maxHeight } = this.state
-        let newheight = height
-        let newwidth = width
-        if (height>maxHeight){
-            let ratio = maxHeight/height
-            newwidth = width * ratio
-            newheight = maxHeight
-        }
+        const { newheight, newwidth } = checkImageHeight(width, height, maxHeight);
         img.src = url
         console.log("setImage",url,newwidth,newheight)
         img.onload = () => {
@@ -99,7 +105,6 @@ class MemeGenerator extends Component {
     handleChange(event) {
         const { name, value } = event.target
         this.setState({ [name]: value })
-
     }
 
     handleSubmit(event) {
@@ -108,6 +113,17 @@ class MemeGenerator extends Component {
         const { url, width, height } = this.state.allMemeImgs[randNum]
         // console.log("handleSubmit",url,width,height)
         this.setState({ url: url, width: width, height: height, updateImage: true })
+    }
+
+    handleFileChange(event) {
+        const scope = this;
+        const url = window.URL.createObjectURL(event.target.files[0])
+        const img = new Image();
+        img.onload = function() {
+            const { newheight, newwidth } = checkImageHeight(this.width, this.height)
+            scope.setState({ url, width: newwidth, height: newheight, updateImage: true })
+        }
+        img.src = url;
     }
 
     componentDidUpdate() {
@@ -124,7 +140,8 @@ class MemeGenerator extends Component {
                 state={this.state} 
                 handleSubmit={this.handleSubmit} 
                 handleChange={this.handleChange}
-                handleColorChnage={this.handleColorChnage} />
+                handleColorChnage={this.handleColorChnage}
+                handleFileChange={this.handleFileChange} />
         )
     }
 }
