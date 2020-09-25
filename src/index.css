@@ -5,6 +5,7 @@
 body {
   margin: 0;
   background-color: whitesmoke;
+
 }
 
 header {
@@ -71,19 +72,35 @@ header > p {
   margin-left: auto;
 }
 
-.meme-form > button {
+.meme-form > p {
+  font-family: VT323, monospace;
+}
+
+.meme-form button {
   border: none;
   font-family: VT323, monospace;
   font-size: 25px;
   letter-spacing: 1.5px;
   color: white;
+}
+
+.meme-form > button {
   background: #6441A5;
+}
+
+.custom-file-upload {
+  background: #4251A6;
+}
+
+.custom-file-upload p {
+  margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .meme-form > button, .meme-form > input, .meme-form > label{
   width: 100%;
 }
-
 
 .meme-form > label > span {
   vertical-align: super;
@@ -118,4 +135,8 @@ text-align: cen
 
 canvas{
   border:1px solid #000000;
+}
+
+input[type="file"] {
+  display: none;
 }
