@@ -1,14 +1,14 @@
-import React from "react"
-import Header from "./Header"
-import MemeGenerator from "./MemeGen"
+import React, { Component } from 'react';
+import Header from "./Header";
+import MemeCatalog from "./MemeCatalog";
 
 function App() {
     return (
         <div>
             <Header />
-            <MemeGenerator />
+            <MemeCatalog />
         </div>
     )
 }
 
-export default App
+export default App;

@@ -13,8 +13,8 @@ const checkImageHeight = (width, height, maxHeight) => {
 }
 
 class MemeGenerator extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         // Add a texts array insted of different text options,
         // Use this array to store objects having details like 
         // Text, color, BColor, size, font?maybe
@@ -32,7 +32,7 @@ class MemeGenerator extends Component {
             bottomBorderColor: "#FFFFFF",
             height: 335,
             width: 568,
-            url: "http://i.imgflip.com/1bij.jpg",
+            url: props.imgSrc,
             allMemeImgs: [],
             image: undefined,
             updateImage: false,
