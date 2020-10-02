@@ -9,6 +9,7 @@ Visit the hosted version [here](https://jai-dewani.github.io/Meme-App/)
 ## Available Scripts
 
 In the project directory, you can run:
+### `npm install`
 
 ### `npm start`
 
