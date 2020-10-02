@@ -1,4 +1,6 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import EditMeme from './EditMeme'
 
 function displayMeme(props){
     return (
@@ -74,6 +76,7 @@ function displayMeme(props){
                 </center>
             </div>
         </div>
+      
     )
 }
 
