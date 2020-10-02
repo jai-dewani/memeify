@@ -47,12 +47,11 @@ header > p {
 }
 
 .meme-form {
-  width: 80%;
+  width: 20%;
   align-items: center;
   display: flex;
-  margin: 10%;  
+  margin: 20px 100px;  
   flex-direction: column;
-  max-width: 400px;
 }
 
 .meme-form > label {
