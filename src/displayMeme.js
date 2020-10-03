@@ -5,32 +5,13 @@ function displayMeme(props){
         <div className="memeRoot">
             <form className="meme-form" onSubmit={props.handleSubmit}>
                 <input
+                    id="tText"
                     type="text"
                     name="topText"
                     placeholder="Top Text"
                     value={props.state.topText}
                     onChange={props.handleChange}
                 />
-                <br />
-                <label>
-                    <span> Text Color </span>
-                    <input
-                        type="color"
-                        name="topColor"
-                        value={props.state.topColor}
-                        onChange={props.handleColorChnage}
-                    />
-                </label>
-                <br />
-                <label>
-                    <span> Border Color  </span>
-                    <input
-                        type="color"
-                        name="topBorderColor"
-                        value={props.state.topBorderColor}
-                        onChange={props.handleColorChnage}
-                    />
-                </label>
                 <br />
                 <input
                     type="text"
@@ -39,6 +20,7 @@ function displayMeme(props){
                     value={props.state.bottomText}
                     onChange={props.handleChange}
                 />
+                <button id="submit1">submit</button>
                 <br />
                 <label>
                     <span> Text Color  </span>
@@ -60,7 +42,7 @@ function displayMeme(props){
                     />
                 </label>
                 <br />
-                <button type="submit">Gen</button>
+                <button type="submit">Random</button>
                 <p>or</p>
                 <button className="cutom-file-upload" type="button" onClick={() => {
                     const input = document.getElementById('file-upload');
@@ -74,7 +56,6 @@ function displayMeme(props){
                 </center>
             </div>
         </div>
-      
     )
 }
 
