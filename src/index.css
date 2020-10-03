@@ -140,3 +140,19 @@ canvas{
 input[type="file"] {
   display: none;
 }
+
+@media (max-width: 991.98px) {
+  .memeRoot {
+    flex-direction: column-reverse;
+  }
+  .meme-form {
+    width: 100%;
+    margin: 1.875rem 0;
+  }
+  .meme {
+    width: 100%;
+  }
+  canvas {
+    max-width: 100%;
+  }
+}
