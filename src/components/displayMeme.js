@@ -21,7 +21,7 @@ function displayMeme(props){
                 />
                 <button id="submit1">Submit</button>
                 <section className="color-picker">
-                    <label for="bottomColor"> Text Color </label>
+                    <label htmlFor="bottomColor"> Text Color </label>
                     <input
                         type="color"
                         name="bottomColor"
@@ -30,7 +30,7 @@ function displayMeme(props){
                     />
                 </section>
                 <section className="color-picker">
-                    <label for="bottomColor"> Border Color </label>
+                    <label htmlFor="bottomColor"> Border Color </label>
                     <input
                         type="color"
                         name="bottomBorderColor"

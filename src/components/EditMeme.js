@@ -13,7 +13,7 @@ function EditMeme(props){
                 />
             </section>
             <section>
-                <label for="topColor"> Text Color </label>
+                <label htmlFor="topColor"> Text Color </label>
                 <input
                     type="color"
                     name="topColor"
@@ -40,7 +40,7 @@ function EditMeme(props){
                 />
             </section>
             <section className="color-picker">
-                <label for="bottomColor"> Text Color </label>
+                <label htmlFor="bottomColor"> Text Color </label>
                 <input
                     type="color"
                     name="bottomColor"
@@ -49,7 +49,7 @@ function EditMeme(props){
                 />
             </section>
             <section className="color-picker">
-                <label for="bottomBorderColor"> Border Color </label>
+                <label htmlFor="bottomBorderColor"> Border Color </label>
                 <input
                     type="color"
                     name="bottomBorderColor"
