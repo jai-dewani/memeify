@@ -1,10 +1,10 @@
 import React from "react"
-import Header from "./Header"
-import MemeGenerator from "./MemeGen"
+import Header from "./components/Header"
+import MemeGenerator from "./components/MemeGen"
 
 function App() {
     return (
-        <div>
+        <div className="app-container">
             <Header />
             <MemeGenerator />
         </div>
