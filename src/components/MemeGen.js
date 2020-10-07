@@ -36,7 +36,7 @@ class MemeGenerator extends Component {
         this.componentDidMount = this.componentDidMount.bind(this)
         this.setImage = this.setImage.bind(this)
         this.setText = this.setText.bind(this)
-        this.handleColorChnage = this.handleColorChnage.bind(this)
+        this.handleColorChange = this.handleColorChange.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleFileChange = this.handleFileChange.bind(this)
@@ -198,7 +198,7 @@ class MemeGenerator extends Component {
         
     }
 
-    handleColorChnage(event) {
+    handleColorChange(event) {
         const { name, value } = event.target
         setTimeout(() => {
             this.setState({ [name]: value })
@@ -241,16 +241,14 @@ class MemeGenerator extends Component {
 
     render() {
         return (
-          
             <DisplayMeme 
-                state={this.state} 
-                handleSubmit={this.handleSubmit} 
-                handleChange={this.handleChange}
-                handleChangeBT={this.handleChangeBT}
-                handleColorChnage={this.handleColorChnage}
-                handleFileChange={this.handleFileChange} />
-
-
+                state={ this.state } 
+                handleSubmit={ this.handleSubmit } 
+                handleChange={ this.handleChange }
+                handleChangeBT={ this.handleChangeBT }
+                handleColorChange={ this.handleColorChange }
+                handleFileChange={ this.handleFileChange } 
+            />
         )
     }
 }

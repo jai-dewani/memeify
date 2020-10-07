@@ -3,52 +3,48 @@ import React from 'react';
 function displayMeme(props){
     return (
         <div className="memeRoot">
-            <form className="meme-form" onSubmit={props.handleSubmit}>
+            <form className="meme-form" onSubmit={ props.handleSubmit } >
                 <input
                     id="tText"
                     type="text"
                     name="topText"
                     placeholder="Top Text"
-                    value={props.state.topText}
-                    onChange={props.handleChange}
+                    value={ props.state.topText }
+                    onChange={ props.handleChange }
                 />
-                <br />
                 <input
                     type="text"
                     name="bottomText"
                     placeholder="Bottom Text"
-                    value={props.state.bottomText}
-                    onChange={props.handleChange}
+                    value= {props.state.bottomText }
+                    onChange={ props.handleChange }
                 />
-                <button id="submit1">submit</button>
-                <br />
-                <label>
-                    <span> Text Color  </span>
+                <button id="submit1">Submit</button>
+                <section className="color-picker">
+                    <label htmlFor="bottomColor"> Text Color </label>
                     <input
                         type="color"
                         name="bottomColor"
-                        value={props.state.bottomColor}
-                        onChange={props.handleColorChnage}
+                        value={ props.state.bottomColor }
+                        onChange={ props.handleColorChange }
                     />
-                </label>
-                <br />
-                <label>
-                    <span> Border Color  </span>
+                </section>
+                <section className="color-picker">
+                    <label htmlFor="bottomColor"> Border Color </label>
                     <input
                         type="color"
                         name="bottomBorderColor"
-                        value={props.state.bottomBorderColor}
-                        onChange={props.handleColorChnage}
+                        value={ props.state.bottomBorderColor }
+                        onChange={ props.handleColorChange }
                     />
-                </label>
-                <br />
+                </section>
                 <button type="submit">Random</button>
-                <p>or</p>
+                <span>or</span>
                 <button className="cutom-file-upload" type="button" onClick={() => {
                     const input = document.getElementById('file-upload');
                     input.click();
                 }}>Upload Your Photo</button>
-                <input id="file-upload" type="file" onChange={props.handleFileChange} />
+                <input id="file-upload" type="file" onChange={ props.handleFileChange } />
             </form>
             <div className="meme">
                 <center>
