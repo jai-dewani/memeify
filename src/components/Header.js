@@ -3,6 +3,7 @@ import React, { useState } from "react"
 function Header() {
 
     const [ message, setMessage ] = useState(false)
+
     const switchTheme = (e) => {
         const invertedNodes = document.querySelectorAll('.inverted')
         document.body.classList.toggle('inverted-theme')
