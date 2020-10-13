@@ -19,7 +19,7 @@ function displayMeme(props){
                     value= {props.state.bottomText }
                     onChange={ props.handleChange }
                 />
-                <button id="submit1">Submit</button>
+                <button id="submit1" className="inverted">Submit</button>
                 <section className="color-picker">
                     <label htmlFor="bottomColor"> Text Color </label>
                     <input
@@ -38,17 +38,17 @@ function displayMeme(props){
                         onChange={ props.handleColorChange }
                     />
                 </section>
-                <button type="submit">Random</button>
+                <button type="submit" className="inverted">Random</button>
                 <span>or</span>
                 <button className="cutom-file-upload" type="button" onClick={() => {
                     const input = document.getElementById('file-upload');
                     input.click();
-                }}>Upload Your Photo</button>
+                }} className="inverted">Upload Your Photo</button>
                 <input id="file-upload" type="file" onChange={ props.handleFileChange } />
             </form>
             <div className="meme">
                 <center>
-                    <canvas id="my-canvas" width="568px" height="335px"/>
+                    <canvas id="my-canvas" className="inverted" width="568px" height="335px"/>
                 </center>
             </div>
         </div>
