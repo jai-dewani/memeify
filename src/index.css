@@ -21,10 +21,18 @@ header {
   height: 12%;
   display: flex;
   align-items: center;
-  background: #6441A5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.5);
+  background: #6441a5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2a0845,
+    #6441a5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2a0845,
+    #6441a5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.5);
 }
 
 header > img {
@@ -40,7 +48,7 @@ header > p {
   margin-left: 40px;
 }
 
-.memeRoot{
+.memeRoot {
   display: flex;
   justify-content: space-between;
   margin: 0 10px;
@@ -62,7 +70,7 @@ header > p {
   align-items: center;
   justify-content: center;
   display: flex;
-  margin: 0 100px;  
+  margin: 0 100px;
   flex-direction: column;
   gap: 20px;
 }
@@ -80,7 +88,7 @@ header > p {
   width: 100%;
 }
 
-.meme-form > input, 
+.meme-form > input,
 .meme-form > section > input {
   height: 40px;
   margin: 2px 0;
@@ -93,7 +101,7 @@ header > p {
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #6441A5;
+  background-color: #6441a5;
   font-weight: normal;
   text-transform: capitalize;
 }
@@ -108,7 +116,7 @@ header > p {
   font-size: 1rem;
 }
 
-.meme-form > button, 
+.meme-form > button,
 .meme-form > input {
   width: 100%;
 }
@@ -116,23 +124,39 @@ header > p {
 .meme-form > input {
   font-size: 1rem;
   padding: 0 10px;
-  border: solid 1px #6441A5;
+  border: solid 1px #6441a5;
   border-radius: 5px;
   background-color: #ddd;
 }
 
 .meme-form > input:focus {
-  box-shadow: 0 0 2px 1px #6441A5;
+  box-shadow: 0 0 2px 1px #6441a5;
   outline: none;
 }
 
 canvas {
-  border: 2px solid #6441A5;
-  box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.5);
+  border: 2px solid #6441a5;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.5);
 }
 
 input[type="file"] {
   display: none;
+}
+
+.download-meme {
+  margin-top: 16px;
+  border: none;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6441a5;
+  font-weight: normal;
+  text-transform: capitalize;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
 }
 
 @media (max-width: 991.98px) {
