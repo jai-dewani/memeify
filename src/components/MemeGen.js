@@ -159,41 +159,44 @@ class MemeGenerator extends Component {
         }
         mySubmit1.onclick = function (evt) {
             evt.preventDefault()
-            // calc the y coordinate for this text on the canvas
-            var y = texts.length * 20 + 20;
-        
-            // get the text from the input element
-            var text1 = {
-                text: topText,
-                x: 20,
-                y: y,
-                flag:false
-            };
-            var text2 = {
-                text: bottomText,
-                x: 20,
-                y: y,
-                flag:true
-            }
 
-        
-            // calc the size of this text for hit-testing purposes
-            context.font = "2em impact, sans-serif"
-            text1.width = context.measureText(text1.text).width;
-            text2.width = context.measureText(text2.text).width;
-            context.strokeStyle = bottomBorderColor
-            context.strokeText(text1.text, width / 2 - text1.width / 2, 30)
-            context.strokeText(text2.text, width / 2 - text2.width / 2, 30)
-            context.fillStyle = bottomColor
-            context.fillText(text1.text, width / 2 - text1.width / 2, 30)
-            context.fillText(text2.text, width / 2 - text2.width / 2, 30)
-            text1.height = 36;
-            text2.height = 36;
-            // put this new text in the texts array
-            texts.push(text1);
-            texts.push(text2);
-            // redraw everything
-            draw();
+            if(texts.length === 0) {
+                // calc the y coordinate for this text on the canvas
+                var y = texts.length * 20 + 20;
+            
+                // get the text from the input element
+                var text1 = {
+                    text: topText,
+                    x: 20,
+                    y: y,
+                    flag:false
+                };
+                var text2 = {
+                    text: bottomText,
+                    x: 20,
+                    y: y,
+                    flag:true
+                }
+
+            
+                // calc the size of this text for hit-testing purposes
+                context.font = "2em impact, sans-serif"
+                text1.width = context.measureText(text1.text).width;
+                text2.width = context.measureText(text2.text).width;
+                context.strokeStyle = bottomBorderColor
+                context.strokeText(text1.text, width / 2 - text1.width / 2, 30)
+                context.strokeText(text2.text, width / 2 - text2.width / 2, 30)
+                context.fillStyle = bottomColor
+                context.fillText(text1.text, width / 2 - text1.width / 2, 30)
+                context.fillText(text2.text, width / 2 - text2.width / 2, 30)
+                text1.height = 36;
+                text2.height = 36;
+                // put this new text in the texts array
+                texts.push(text1);
+                texts.push(text2);
+                // redraw everything
+                draw();
+            }
         }
         
     }
