@@ -40,7 +40,7 @@ function displayMeme(props){
             </div>
 
             <button type="submit" onClick={ props.handleRandomClick } className="inverted">Random</button>
-            <span>or</span>
+            <button type="submit" onClick={ props.handleDownloadClick } className="inverted">Download</button>
             <button className="cutom-file-upload inverted" type="button" onClick={() => {
                 const input = document.getElementById('file-upload');
                 input.click();

@@ -169,6 +169,7 @@ class MemeGenerator extends Component {
         var context = canvas.getContext("2d");
         // context.clearRect(0, 0, canvas.width, canvas.height);
         image.src = url;
+        image.crossOrigin = "anonymous"
         const { newheight, newwidth } = checkImageHeight(width, height, maxHeight);
         image.onload = () => {
             canvas.height = newheight
@@ -256,7 +257,19 @@ class MemeGenerator extends Component {
         img.src = url;
     }
 
-
+    handleDownloadClick(event){
+        event.preventDefault();
+        console.log(event);
+        var canvas = document.getElementById("my-canvas")
+        var image = canvas.toDataURL("image/jpeg");
+        var img = new Image();
+        img.crossOrigin="anonymous"
+        img.href=image
+        var link = document.createElement('a');
+        link.download = "meme.jpeg"
+        link.href=image 
+        link.click()
+    }
 
     render() {
         return (
@@ -271,6 +284,7 @@ class MemeGenerator extends Component {
                     handleFileChange={ this.handleFileChange } 
                     handleAddText={ this.handleAddText }
                     handleRemoveText={ this.handleRemoveText }
+                    handleDownloadClick={ this.handleDownloadClick }
                 />
                 <Canvas />
             </div>
