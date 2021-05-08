@@ -1,57 +1,53 @@
 import React from 'react';
 
 function displayMeme(props){
+    const {texts} = props.state;
+    console.log(texts)
     return (
-        <div className="memeRoot">
-            <form className="meme-form" onSubmit={ props.handleSubmit } >
-                <input
-                    id="tText"
-                    type="text"
-                    name="topText"
-                    placeholder="Top Text"
-                    value={ props.state.topText }
-                    onChange={ props.handleChange }
-                />
-                <input
-                    type="text"
-                    name="bottomText"
-                    placeholder="Bottom Text"
-                    value= {props.state.bottomText }
-                    onChange={ props.handleChange }
-                />
-                <button id="submit1" className="inverted">Submit</button>
-                <section className="color-picker">
-                    <label htmlFor="bottomColor"> Text Color </label>
-                    <input
-                        type="color"
-                        name="bottomColor"
-                        value={ props.state.bottomColor }
-                        onChange={ props.handleColorChange }
-                    />
-                </section>
-                <section className="color-picker">
-                    <label htmlFor="bottomColor"> Border Color </label>
-                    <input
-                        type="color"
-                        name="bottomBorderColor"
-                        value={ props.state.bottomBorderColor }
-                        onChange={ props.handleColorChange }
-                    />
-                </section>
-                <button type="submit" className="inverted">Random</button>
-                <span>or</span>
-                <button className="cutom-file-upload" type="button" onClick={() => {
-                    const input = document.getElementById('file-upload');
-                    input.click();
-                }} className="inverted">Upload Your Photo</button>
-                <input id="file-upload" type="file" onChange={ props.handleFileChange } />
-            </form>
-            <div className="meme">
-                <center>
-                    <canvas id="my-canvas" className="inverted" width="568px" height="335px"/>
-                </center>
+        <form className="meme-form" onSubmit={ props.handleSubmit } >
+            {
+                props.state.texts.map(text => (
+                    <div>
+                        <input
+                            className="input"
+                            key={text.id}
+                            type="text"
+                            name={text.text}
+                            placeholder="Funny text goes here...."
+                            value= {text.text }
+                            onChange={ props.handleChange.bind(this, text.id) }
+                            />
+                        <input
+                            className="colorPicker"
+                            type="color"
+                            name="bottomColor"
+                            value={ text.color }
+                            onChange={ props.handleColorChange.bind(this, text.id) }
+                        />
+                        <input
+                            className="colorPicker"
+                            type="color"
+                            name="bottomBorderColor"
+                            value={ text.borderColor }
+                            onChange={ props.handleBorderColorChange.bind(this, text.id) }
+                        />
+                    </div>
+                ))
+            }
+            <div className="input-control">
+                <button id="remove " className="inverted" onClick={props.handleRemoveText }>-</button>
+                <button id="add" className="inverted" onClick={props.handleAddText }>+</button>
             </div>
-        </div>
+            <button id="submit1" className="inverted">Submit</button>
+
+            <button type="submit" onClick={ props.handleRandomClick } className="inverted">Random</button>
+            <span>or</span>
+            <button className="cutom-file-upload inverted" type="button" onClick={() => {
+                const input = document.getElementById('file-upload');
+                input.click();
+            }}>Upload Your Photo</button>
+            <input id="file-upload" type="file" onChange={ props.handleFileChange } />
+        </form>            
     )
 }
 
