@@ -14,9 +14,18 @@ em {
   color: white;
 }
 
-header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.logo{
+  display: flex;
+  flex-direction: row;
+  padding: 0 10%;
+}
+
+.logo p {
+  color: white;
+  margin: auto 20px;
+}
+.header {
+  padding: 1% 15%;
 }
 
 .inverted-theme { 
@@ -109,3 +118,27 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.input-control{
+  flex-direction: row;
+}
+
+.input-control > button{
+  margin: 0 15px;
+}
+
+.colorPicker{
+  height: 40px;
+  margin: 0 0 0 10px ;
+  vertical-align: middle;
+}
+
+.input{
+  height: 40px;
+  margin: 2px 0;
+  font-size: 1rem;
+  padding: 0 10px;
+  border: solid 1px #6441A5;
+  border-radius: 5px;
+  background-color: #ddd;
+  vertical-align: middle;
+}

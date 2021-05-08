@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: VT323, monospace;
-  color: rgb(53, 53, 53);
+  /* color: rgb(53, 53, 53); */
 }
 
 body,
@@ -17,13 +17,13 @@ body,
   min-height: 100vh;
 }
 
-header {
+/* header {
   height: 12%;
   display: flex;
   align-items: center;
-  background: #6441A5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #6441A5;  
+  background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  
+  background: linear-gradient(to right, #2a0845, #6441A5); 
   box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.5);
 }
 
@@ -38,7 +38,7 @@ header > p {
   color: whitesmoke;
   font-size: 30px;
   margin-left: 40px;
-}
+} */
 
 .memeRoot{
   display: flex;
@@ -73,18 +73,15 @@ header > p {
   height: 40px;
 }
 
-.meme-form .color-picker {
+/* .meme-form .color-picker {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-}
+} */
 
-.meme-form > input, 
-.meme-form > section > input {
-  height: 40px;
-  margin: 2px 0;
-}
+
+
 
 .meme-form button {
   border: none;
@@ -104,9 +101,6 @@ header > p {
   width: 100%;
 }
 
-.color-picker > label {
-  font-size: 1rem;
-}
 
 .meme-form > button, 
 .meme-form > input {
