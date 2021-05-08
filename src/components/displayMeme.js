@@ -38,7 +38,6 @@ function displayMeme(props){
                 <button id="remove " className="inverted" onClick={props.handleRemoveText }>-</button>
                 <button id="add" className="inverted" onClick={props.handleAddText }>+</button>
             </div>
-            <button id="submit1" className="inverted">Submit</button>
 
             <button type="submit" onClick={ props.handleRandomClick } className="inverted">Random</button>
             <span>or</span>
