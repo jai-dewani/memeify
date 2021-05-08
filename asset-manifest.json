@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Meme-App/static/css/main.e75c81e7.chunk.css",
-    "main.js": "/Meme-App/static/js/main.ccb8a46f.chunk.js",
-    "main.js.map": "/Meme-App/static/js/main.ccb8a46f.chunk.js.map",
+    "main.css": "/Meme-App/static/css/main.521eba08.chunk.css",
+    "main.js": "/Meme-App/static/js/main.db56f44a.chunk.js",
+    "main.js.map": "/Meme-App/static/js/main.db56f44a.chunk.js.map",
     "runtime-main.js": "/Meme-App/static/js/runtime-main.f39f8f1c.js",
     "runtime-main.js.map": "/Meme-App/static/js/runtime-main.f39f8f1c.js.map",
     "static/js/2.4c203d56.chunk.js": "/Meme-App/static/js/2.4c203d56.chunk.js",
     "static/js/2.4c203d56.chunk.js.map": "/Meme-App/static/js/2.4c203d56.chunk.js.map",
     "index.html": "/Meme-App/index.html",
-    "precache-manifest.2e938b12ba7924cd5a1f27d594250dad.js": "/Meme-App/precache-manifest.2e938b12ba7924cd5a1f27d594250dad.js",
+    "precache-manifest.fc82ebfe885d050bf46b231600cbce7b.js": "/Meme-App/precache-manifest.fc82ebfe885d050bf46b231600cbce7b.js",
     "service-worker.js": "/Meme-App/service-worker.js",
-    "static/css/main.e75c81e7.chunk.css.map": "/Meme-App/static/css/main.e75c81e7.chunk.css.map",
+    "static/css/main.521eba08.chunk.css.map": "/Meme-App/static/css/main.521eba08.chunk.css.map",
     "static/js/2.4c203d56.chunk.js.LICENSE.txt": "/Meme-App/static/js/2.4c203d56.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f39f8f1c.js",
     "static/js/2.4c203d56.chunk.js",
-    "static/css/main.e75c81e7.chunk.css",
-    "static/js/main.ccb8a46f.chunk.js"
+    "static/css/main.521eba08.chunk.css",
+    "static/js/main.db56f44a.chunk.js"
   ]
 }
