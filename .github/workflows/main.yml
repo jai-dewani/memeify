@@ -26,7 +26,8 @@ jobs:
 
       - name: Build 
         run: npm run build 
-        
+          CI: false
+
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
