@@ -35,13 +35,13 @@ function displayMeme(props){
                 ))
             }
             <div className="input-control">
-                <button id="remove " className="inverted" onClick={props.handleRemoveText }>-</button>
-                <button id="add" className="inverted" onClick={props.handleAddText }>+</button>
+                <button id="remove " className="inverted button" onClick={props.handleRemoveText }>-</button>
+                <button id="add" className="inverted button" onClick={props.handleAddText }>+</button>
             </div>
 
-            <button type="submit" onClick={ props.handleRandomClick } className="inverted">Random</button>
-            <button type="submit" onClick={ props.handleDownloadClick } className="inverted">Download</button>
-            <button className="cutom-file-upload inverted" type="button" onClick={() => {
+            <button type="submit" onClick={ props.handleRandomClick } className="inverted button">Random</button>
+            <button type="submit" onClick={ props.handleDownloadClick } className="inverted button">Download</button>
+            <button className="cutom-file-upload inverted button" type="button" onClick={() => {
                 const input = document.getElementById('file-upload');
                 input.click();
             }}>Upload Your Photo</button>

@@ -142,3 +142,7 @@ input:checked + .slider:before {
   background-color: #ddd;
   vertical-align: middle;
 }
+
+.button:hover{
+  cursor: pointer;
+}
