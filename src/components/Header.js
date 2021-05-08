@@ -38,6 +38,7 @@ function Header() {
                 </IconButton>
                 <Typography variant="h6" className={classes.title}>
                     <img 
+                        className="inverted inverted-theme"
                         src="https://upload.wikimedia.org/wikipedia/en/9/9a/Trollface_non-free.png" 
                         // src="http://assets.stickpng.com/images/580b585b2edbce24c47b2a2f.png"
                         alt="Problem?"
