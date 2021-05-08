@@ -25,7 +25,7 @@ class MemeGenerator extends Component {
                     color: "#000000",
                     borderColor: "#FFFFFF",
                     size: 10,
-                    x:50, 
+                    x:250, 
                     y:50
                 },
                 {
@@ -35,7 +35,7 @@ class MemeGenerator extends Component {
                     borderColor: "#FFFFFF",
                     size: 10,
                     x:250, 
-                    y:250
+                    y:300
                 },
             ],
             context: undefined, 
