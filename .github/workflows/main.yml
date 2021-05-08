@@ -26,6 +26,7 @@ jobs:
 
       - name: Build 
         run: npm run build 
+        env:
           CI: false
 
       - name: Upload production-ready build files
