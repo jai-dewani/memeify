@@ -2,7 +2,7 @@ import React from 'react';
 
 function displayMeme(props){
     const {texts} = props.state;
-    console.log(texts)
+    // console.log(texts)
     return (
         <form className="meme-form" onSubmit={ props.handleSubmit } >
             {
