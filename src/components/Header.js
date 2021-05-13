@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+
 // import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme) => ({
@@ -53,7 +54,8 @@ function Header() {
                 <label className="theme-switch" htmlFor="checkbox">
                     <input type="checkbox" id="checkbox" onChange={switchTheme}/>
                     <div className="slider round"></div>
-              </label>
+                </label>
+
 
                 </Typography>
             </Toolbar>

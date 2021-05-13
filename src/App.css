@@ -146,3 +146,29 @@ input:checked + .slider:before {
 .button:hover{
   cursor: pointer;
 }
+
+button > svg{
+  vertical-align: middle;
+}
+
+#footer{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#footer > * > svg{
+  vertical-align: middle;
+}
+
+#footer > #right, #left {
+  margin-top: -7ppx;
+  font-size: 25px;
+  margin-right: 20px;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
