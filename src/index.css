@@ -58,11 +58,11 @@ header > p {
 }
 
 .meme-form {
-  max-width: 20%;
+  /* max-width: 20%; */
   align-items: center;
   justify-content: center;
   display: flex;
-  margin: 0 100px;  
+  margin: 0 4% 0 4%;  
   flex-direction: column;
   gap: 20px;
 }
@@ -130,14 +130,21 @@ input[type="file"] {
 }
 
 @media (max-width: 991.98px) {
+  .meme {
+    position: relative;
+    flex-grow: initial;
+    margin: auto 0;
+  }
   .memeRoot {
     flex-direction: column-reverse;
   }
   .meme-form {
-    max-width: 100%;
+    max-width: 600px;
     margin: 1.875rem 0;
+    margin: 20px auto;
   }
   canvas {
     max-width: 100%;
+    margin: 20px 0 0 0;
   }
 }

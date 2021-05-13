@@ -1,4 +1,7 @@
 import React from 'react';
+import { FaDownload, FaFileDownload,  } from "react-icons/fa/index"
+import { Download, MdFileDownload, MdFileUpload, MdShuffle } from "react-icons/md/index"
+import { VscDesktopDownload } from "react-icons/vsc";
 
 function displayMeme(props){
     const {texts} = props.state;
@@ -39,12 +42,12 @@ function displayMeme(props){
                 <button id="add" className="inverted button" onClick={props.handleAddText }>+</button>
             </div>
 
-            <button type="submit" onClick={ props.handleRandomClick } className="inverted button">Random</button>
-            <button type="submit" onClick={ props.handleDownloadClick } className="inverted button">Download</button>
+            <button type="submit" onClick={ props.handleRandomClick } className="inverted button"><MdShuffle/> Random</button>
+            <button type="submit" onClick={ props.handleDownloadClick } className="inverted button"><MdFileDownload />  download</button>
             <button className="cutom-file-upload inverted button" type="button" onClick={() => {
                 const input = document.getElementById('file-upload');
                 input.click();
-            }}>Upload Your Photo</button>
+            }}> <MdFileUpload/> Upload</button>
             <input id="file-upload" type="file" onChange={ props.handleFileChange } />
         </form>            
     )
