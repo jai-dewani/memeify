@@ -1,4 +1,5 @@
-# Meme-App
+[![Deploy](https://github.com/jai-dewani/memeify/actions/workflows/main.yml/badge.svg)](https://github.com/jai-dewani/memeify/actions/workflows/main.yml)
+# Memeify
 
 The main idea is to provide a seamless interface for creating memes on web, while I have personally enjoyed creating memes on apps in phones but sometimes you just need a web-app on a big screen. This is the solution to that problem.  
 
