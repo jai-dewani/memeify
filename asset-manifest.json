@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/memeify/static/css/main.e333c495.chunk.css",
-    "main.js": "/memeify/static/js/main.646c9a00.chunk.js",
-    "main.js.map": "/memeify/static/js/main.646c9a00.chunk.js.map",
+    "main.js": "/memeify/static/js/main.fa42ea38.chunk.js",
+    "main.js.map": "/memeify/static/js/main.fa42ea38.chunk.js.map",
     "runtime-main.js": "/memeify/static/js/runtime-main.74eee4cd.js",
     "runtime-main.js.map": "/memeify/static/js/runtime-main.74eee4cd.js.map",
-    "static/js/2.7c6e90f4.chunk.js": "/memeify/static/js/2.7c6e90f4.chunk.js",
-    "static/js/2.7c6e90f4.chunk.js.map": "/memeify/static/js/2.7c6e90f4.chunk.js.map",
+    "static/js/2.e6f00aed.chunk.js": "/memeify/static/js/2.e6f00aed.chunk.js",
+    "static/js/2.e6f00aed.chunk.js.map": "/memeify/static/js/2.e6f00aed.chunk.js.map",
     "index.html": "/memeify/index.html",
-    "precache-manifest.c5167bb78c20b52016d7d225396f2be4.js": "/memeify/precache-manifest.c5167bb78c20b52016d7d225396f2be4.js",
+    "precache-manifest.a55da5b455bb391bc4d2a1695e56e0c8.js": "/memeify/precache-manifest.a55da5b455bb391bc4d2a1695e56e0c8.js",
     "service-worker.js": "/memeify/service-worker.js",
     "static/css/main.e333c495.chunk.css.map": "/memeify/static/css/main.e333c495.chunk.css.map",
-    "static/js/2.7c6e90f4.chunk.js.LICENSE.txt": "/memeify/static/js/2.7c6e90f4.chunk.js.LICENSE.txt"
+    "static/js/2.e6f00aed.chunk.js.LICENSE.txt": "/memeify/static/js/2.e6f00aed.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.74eee4cd.js",
-    "static/js/2.7c6e90f4.chunk.js",
+    "static/js/2.e6f00aed.chunk.js",
     "static/css/main.e333c495.chunk.css",
-    "static/js/main.646c9a00.chunk.js"
+    "static/js/main.fa42ea38.chunk.js"
   ]
 }
