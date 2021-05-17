@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Meme-App/static/css/main.e333c495.chunk.css",
-    "main.js": "/Meme-App/static/js/main.e5ad37eb.chunk.js",
-    "main.js.map": "/Meme-App/static/js/main.e5ad37eb.chunk.js.map",
-    "runtime-main.js": "/Meme-App/static/js/runtime-main.f39f8f1c.js",
-    "runtime-main.js.map": "/Meme-App/static/js/runtime-main.f39f8f1c.js.map",
-    "static/js/2.7c6e90f4.chunk.js": "/Meme-App/static/js/2.7c6e90f4.chunk.js",
-    "static/js/2.7c6e90f4.chunk.js.map": "/Meme-App/static/js/2.7c6e90f4.chunk.js.map",
-    "index.html": "/Meme-App/index.html",
-    "precache-manifest.36794637a9b742e720db2c1cfdcda81b.js": "/Meme-App/precache-manifest.36794637a9b742e720db2c1cfdcda81b.js",
-    "service-worker.js": "/Meme-App/service-worker.js",
-    "static/css/main.e333c495.chunk.css.map": "/Meme-App/static/css/main.e333c495.chunk.css.map",
-    "static/js/2.7c6e90f4.chunk.js.LICENSE.txt": "/Meme-App/static/js/2.7c6e90f4.chunk.js.LICENSE.txt"
+    "main.css": "/memeify/static/css/main.e333c495.chunk.css",
+    "main.js": "/memeify/static/js/main.646c9a00.chunk.js",
+    "main.js.map": "/memeify/static/js/main.646c9a00.chunk.js.map",
+    "runtime-main.js": "/memeify/static/js/runtime-main.74eee4cd.js",
+    "runtime-main.js.map": "/memeify/static/js/runtime-main.74eee4cd.js.map",
+    "static/js/2.7c6e90f4.chunk.js": "/memeify/static/js/2.7c6e90f4.chunk.js",
+    "static/js/2.7c6e90f4.chunk.js.map": "/memeify/static/js/2.7c6e90f4.chunk.js.map",
+    "index.html": "/memeify/index.html",
+    "precache-manifest.c5167bb78c20b52016d7d225396f2be4.js": "/memeify/precache-manifest.c5167bb78c20b52016d7d225396f2be4.js",
+    "service-worker.js": "/memeify/service-worker.js",
+    "static/css/main.e333c495.chunk.css.map": "/memeify/static/css/main.e333c495.chunk.css.map",
+    "static/js/2.7c6e90f4.chunk.js.LICENSE.txt": "/memeify/static/js/2.7c6e90f4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f39f8f1c.js",
+    "static/js/runtime-main.74eee4cd.js",
     "static/js/2.7c6e90f4.chunk.js",
     "static/css/main.e333c495.chunk.css",
-    "static/js/main.e5ad37eb.chunk.js"
+    "static/js/main.646c9a00.chunk.js"
   ]
 }
