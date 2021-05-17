@@ -48,7 +48,7 @@ function Header() {
                     />
                 </Typography>
                 <Typography variant="h5" className={classes.title}>
-                    <p>Meme Generator</p>
+                    <p>Memeify</p>
                 </Typography>
                 <Typography variant="h6">
                 <label className="theme-switch" htmlFor="checkbox">
