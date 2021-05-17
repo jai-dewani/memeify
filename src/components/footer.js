@@ -1,5 +1,4 @@
 import React from 'react';
-import { MdFavorite } from 'react-icons/md'
 import { FaGithub, FaTwitter  } from 'react-icons/fa'
 import { IconContext } from "react-icons";
 
@@ -15,10 +14,10 @@ function Footer() {
                 </a>
             </div>
             <div id="middle">
-                Made with <MdFavorite/> by <a href="https://github.com/jai-dewani">Jai Kumar Dewani</a>                
+                Made with <span role="img"aria-label="Red Heart" >❤️</span> by <a href="https://github.com/jai-dewani">Jai Kumar Dewani</a>                
             </div>
             <div id="right">
-                <a href="https://github.com/jai-dewani/Meme-App">
+                <a href="https://github.com/jai-dewani/memeify">
                     <IconContext.Provider value={{color:"black"}}>
                         <div><FaGithub/></div>
                     </IconContext.Provider>
