@@ -1,7 +1,5 @@
 import React from 'react';
-import { FaDownload, FaFileDownload,  } from "react-icons/fa/index"
-import { Download, MdFileDownload, MdFileUpload, MdShuffle } from "react-icons/md/index"
-import { VscDesktopDownload } from "react-icons/vsc";
+import { MdFileDownload, MdFileUpload, MdShuffle } from "react-icons/md/index"
 
 function displayMeme(props){
     const {texts} = props.state;
@@ -21,14 +19,14 @@ function displayMeme(props){
                             onChange={ props.handleChange.bind(this, text.id) }
                             />
                         <input
-                            className="colorPicker"
+                            className="colorPicker inverted"
                             type="color"
                             name="bottomColor"
                             value={ text.color }
                             onChange={ props.handleColorChange.bind(this, text.id) }
                         />
                         <input
-                            className="colorPicker"
+                            className="colorPicker inverted"
                             type="color"
                             name="bottomBorderColor"
                             value={ text.borderColor }
