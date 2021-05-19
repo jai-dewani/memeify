@@ -3,11 +3,8 @@
 
 The main idea is to provide a seamless interface for creating memes on web, while I have personally enjoyed creating memes on apps in phones but sometimes you just need a web-app on a big screen. This is the solution to that problem.  
 
-The best way to descript this project would be via this [tweet](https://twitter.com/harsh_casper/status/1392132575884283909)  by [Harsh Mishra](https://twitter.com/harsh_casper) 
-
-![image](https://user-images.githubusercontent.com/33520257/118286744-697ecb00-b4f0-11eb-828e-cffea24bfddb.png)  
-
 ### Want to contribute?
+Sure, open an issue, point out errors, and what not. Wanna fix something yourselves, you're welcome to open a PR and I appreciate it.
 
 - Check the [issues](https://github.com/jai-dewani/Meme-App/issues) section for features I am looking to incorporate
 - If you have any doubts, feel free to reach out to me on [Twitter](https://twitter.com/jai_dewani)
