@@ -3,11 +3,11 @@ import { MdFileDownload, MdFileUpload, MdShuffle } from "react-icons/md/index"
 
 function displayMeme(props){
     const {texts} = props.state;
-    // console.log(texts)
+    console.log(texts)
     return (
         <form className="meme-form" onSubmit={ props.handleSubmit } >
             {
-                props.state.texts.map(text => (
+                texts.map(text => (
                     <div>
                         <input
                             className="input"
@@ -31,6 +31,14 @@ function displayMeme(props){
                             name="bottomBorderColor"
                             value={ text.borderColor }
                             onChange={ props.handleBorderColorChange.bind(this, text.id) }
+                        />
+                        <input
+                            className="input textSize"
+                            type="text"
+                            name={ text.size}
+                            placeholder="Size"
+                            value= { text.size }
+                            onChange={ props.handleSizeChange.bind(this, text.id) }
                         />
                     </div>
                 ))
