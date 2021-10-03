@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #302AE6;
-    --secondary-color: #536390;
-    --font-color: #424242;
-    --bg-color: #fff;
-    --heading-color: #292922;
+  --primary-color: #302ae6;
+  --secondary-color: #536390;
+  --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922;
 }
 
 .dark-mode {
@@ -14,7 +14,7 @@ em {
   color: white;
 }
 
-.logo{
+.logo {
   display: flex;
   flex-direction: row;
   padding: 0 10%;
@@ -28,45 +28,39 @@ em {
   padding: 1% 15%;
 }
 
-.inverted-theme { 
+.inverted-theme {
   filter: invert(1) hue-rotate(180deg);
-} 
-
-[data-theme="dark"] {
-    --primary-color: #9A97F3;
-    --secondary-color: #818cab;
-    --font-color: #e1e1ff;
-    --bg-color: #161625;
-    --heading-color: #818cab;
 }
 
+[data-theme='dark'] {
+  --primary-color: #9a97f3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --bg-color: #161625;
+  --heading-color: #818cab;
+}
 
 body {
-    background-color: var(--bg-color);
-    color: var(--font-color);
-
+  background-color: var(--bg-color);
+  color: var(--font-color);
 }
 
 h1 {
-    color: var(--secondary-color);
-
+  color: var(--secondary-color);
 }
 
 a {
-    color: var(--primary-color);
-
+  color: var(--primary-color);
 }
-
 
 .theme-switch-wrapper {
   display: flex;
   align-items: center;
-
 }
 
 .theme-switch-wrapper em {
-	margin-left: 10px;
-	font-size: 1rem;
+  margin-left: 10px;
+  font-size: 1rem;
 }
 
 .theme-switch {
@@ -77,7 +71,7 @@ a {
 }
 
 .theme-switch input {
-  display:none;
+  display: none;
 }
 
 .slider {
@@ -88,17 +82,17 @@ a {
   position: absolute;
   right: 0;
   top: 0;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .slider:before {
   background-color: #fff;
   bottom: 4px;
-  content: "";
+  content: '';
   height: 26px;
   left: 4px;
   position: absolute;
-  transition: .4s;
+  transition: 0.4s;
   width: 26px;
 }
 
@@ -118,40 +112,44 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.input-control{
+.input-control {
   flex-direction: row;
 }
 
-.input-control > button{
+.input-control > button {
   margin: 0 15px;
 }
 
-.colorPicker{
+.colorPicker {
   height: 40px;
-  margin: 0 0 0 10px ;
+  margin: 0 0 0 10px;
   vertical-align: middle;
 }
 
-.input{
+.colorPicker:hover {
+  cursor: pointer;
+}
+
+.input {
   height: 40px;
   margin: 2px 0;
   font-size: 1rem;
   padding: 0 10px;
-  border: solid 1px #6441A5;
+  border: solid 1px #6441a5;
   border-radius: 5px;
   background-color: #ddd;
   vertical-align: middle;
 }
 
-.button:hover{
+.button:hover {
   cursor: pointer;
 }
 
-button > svg{
+button > svg {
   vertical-align: middle;
 }
 
-#footer{
+#footer {
   text-align: center;
   margin-bottom: 20px;
   font-size: 16px;
@@ -160,15 +158,15 @@ button > svg{
   justify-content: space-between;
 }
 
-#footer > * > svg{
+#footer > * > svg {
   vertical-align: middle;
 }
 
-#footer > #right, #left {
+#footer > #right,
+#left {
   margin-top: -7ppx;
   font-size: 25px;
   margin-right: 20px;
   margin-left: 20px;
   vertical-align: middle;
 }
-
