@@ -120,6 +120,12 @@ header > p {
   outline: none;
 }
 
+.textSize {
+  width: 70px;
+  margin: 0 0 0 10px !important;
+  text-align: center;
+}
+
 canvas {
   border: 2px solid #6441A5;
   box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.5);

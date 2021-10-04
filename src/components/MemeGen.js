@@ -25,6 +25,7 @@ class MemeGenerator extends Component {
                     color: "#000000",
                     borderColor: "#FFFFFF",
                     height: 36,
+                    size: 10,
                     width: null,
                     x:250, 
                     y:50
@@ -35,6 +36,7 @@ class MemeGenerator extends Component {
                     color: "#000000",
                     borderColor: "#FFFFFF",
                     height: 36,
+                    size: 10,
                     width: null,
                     x:250, 
                     y:300
@@ -57,6 +59,7 @@ class MemeGenerator extends Component {
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.handleSizeChange = this.handleSizeChange.bind(this)
         this.handleRandomClick = this.handleRandomClick.bind(this)
         this.handleFileChange = this.handleFileChange.bind(this)
         this.handleAddText = this.handleAddText.bind(this)
@@ -186,8 +189,8 @@ class MemeGenerator extends Component {
             canvas.width = newwidth
             context.drawImage(image, 0, 0, width, height, 0, 0, newwidth, newheight);
             for (var i = 0; i < texts.length; i++) {
-                context.font = "2em impact, sans-serif"
                 const { text, color, borderColor, x, y, size } = texts[i];
+                context.font = `${size}px impact, sans-serif`
                 const topWidth = context.measureText(text).width
                 context.strokeStyle = borderColor
                 context.strokeText(text, x, y)
@@ -223,12 +226,27 @@ class MemeGenerator extends Component {
         event.preventDefault()
         var canvas = document.getElementById("my-canvas")
         var context = canvas.getContext("2d");
-        context.font = "2em impact, sans-serif"
         const { value } = event.target
         var texts = [...this.state.texts];
+        context.font = `${texts[i].size}px impact, sans-serif`
         texts[i].text = value;
         texts[i].width = context.measureText(value).width;
         this.setState({ texts })
+    }
+
+    handleSizeChange(i, event) {
+        event.preventDefault()
+        var canvas = document.getElementById("my-canvas")
+        var context = canvas.getContext("2d");
+        const { value } = event.target
+        if (!isNaN(value)) {
+            context.font = `${value}px impact, sans-serif`
+            var texts = [...this.state.texts];
+            texts[i].size = value;
+            texts[i].width = context.measureText(value).width;
+            console.log(this.state.texts);
+            this.setState({ texts })
+        }
     }
 
     handleAddText(event){
@@ -296,6 +314,7 @@ class MemeGenerator extends Component {
                     handleChangeBT={ this.handleChangeBT }
                     handleColorChange={ this.handleColorChange }
                     handleBorderColorChange={ this.handleBorderColorChange }
+                    handleSizeChange={this.handleSizeChange}
                     handleFileChange={ this.handleFileChange } 
                     handleAddText={ this.handleAddText }
                     handleRemoveText={ this.handleRemoveText }
