@@ -1,7 +1,7 @@
 import React from "react"
-import Header from "./components/Header"
-import MemeGenerator from "./components/MemeGen"
-import Footer from "./components/footer";
+import Header from "./Components/Header"
+import MemeGenerator from "./Components/MemeGen"
+import Footer from "./Components/footer";
 import './App.css'
 
 function App() {
