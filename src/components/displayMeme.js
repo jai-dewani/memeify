@@ -1,15 +1,15 @@
 import React from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import { MdFileDownload, MdFileUpload, MdShuffle } from 'react-icons/md/index';
+import handleDownloadClick from '../Utils/downloadImage'
 
 function displayMeme(props){
     const {texts} = props.state;
-    console.log(texts)
     return (
         <form className="meme-form" onSubmit={ props.handleSubmit } >
             {
                 texts.map(text => (
-                    <div>
+                    <div key={text.id*10}>
                         <input
                             className="input"
                             key={text.id}
@@ -17,7 +17,7 @@ function displayMeme(props){
                             name={text.text}
                             placeholder="Funny text goes here...."
                             value= {text.text }
-                            onChange={ props.handleChange.bind(this, text.id) }
+                            onChange={ props.handleTextChange.bind(this, text.id) }
                         />
 
                         <Tooltip title='Text Color' placement='top-start' arrow>  
@@ -43,10 +43,10 @@ function displayMeme(props){
                         <input
                             className="input textSize"
                             type="text"
-                            name={ text.size}
+                            name={ text.size }
                             placeholder="Size"
                             value= { text.size }
-                            onChange={ props.handleSizeChange.bind(this, text.id) }
+                            onChange={ props.handleTextSizeChange.bind(this, text.id) }
                         />
                     </div>
                 ))
@@ -71,14 +71,14 @@ function displayMeme(props){
 
             <button
                 type='submit'
-                onClick={props.handleRandomClick}
+                onClick={props.handleRandomMemeClick }
                 className='inverted button'
             >
                 <MdShuffle /> Random
             </button>
             <button
                 type='submit'
-                onClick={props.handleDownloadClick}
+                onClick={handleDownloadClick}
                 className='inverted button'
             >
                 <MdFileDownload /> download
