@@ -42,7 +42,7 @@ function displayMeme(props){
 
                         <input
                             className="input textSize"
-                            type="text"
+                            type="number"
                             name={ text.size }
                             placeholder="Size"
                             value= { text.size }
