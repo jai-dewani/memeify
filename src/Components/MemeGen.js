@@ -1,205 +1,70 @@
 import React, { Component } from "react"
 import DisplayMeme from './displayMeme'
-import Canvas from './canvas'
-
-const checkImageHeight = (width, height, maxHeight) => {
-    let newheight = height
-    let newwidth = width
-    if (height>maxHeight){
-        let ratio = maxHeight/height
-        newwidth = width * ratio
-        newheight = maxHeight
-    }
-    return {newheight, newwidth}
-}
-
+import Canvas from './Canvas'
+import checkImageHeight from "../Utils/checkImageHeight"
 
 class MemeGenerator extends Component {
     constructor() {
         super()
-
         this.state = {
             texts: [
                 {
                     id: 0,
                     text: "",
-                    color: "#000000",
-                    borderColor: "#FFFFFF",
-                    height: null,
-                    width: null,
-                    size: 30,
+                    fillColor: "#000000",
+                    strokeColor: "#FFFFFF",
+                    fontSize: 30,
                     x:250, 
                     y:50
                 },
-                {
-                    id: 1,
-                    text: "",
-                    color: "#000000",
-                    borderColor: "#FFFFFF",
-                    height: null,
-                    width: null,
-                    size: 30,
-                    x:250, 
-                    y:300
-                },
             ],
-            context: undefined, 
-            canvas: undefined,
-            topText: "",
-            bottomText: "",
-            bottomColor: "#000000",
-            bottomBorderColor: "#FFFFFF",
-            height: 335,
-            width: 568,
-            url: "http://i.imgflip.com/1bij.jpg",
             allMemeImgs: [],
-            image: undefined,
-            maxHeight: Math.floor(window.innerHeight*0.8),
+            imageData:{
+                height: 335,
+                width: 568,
+                url: "http://i.imgflip.com/1bij.jpg",
+                maxHeight: Math.floor(window.innerHeight*0.7),
+                object: null,
+            },
             updateImage: false,
-            selectedText: -1
         }
-        this.selectedText = -1;
-        this.startX = undefined;
-        this.startY = undefined;
-    }
-   
-    getPos = (el) => {
-        // yay readability
-        var lx=0,ly=0;
-        while(el!=null){
-            lx += el.offsetLeft 
-            ly += el.offsetTop 
-            el = el.offsetParent
-        }
-        return {x: lx,y: ly};
-    }
-
-    textHittest = (x, y, textIndex) => {
-        var text = this.state.texts[textIndex];
-        return (x >= text.x && x <= text.x + text.width && y >= text.y - text.height && y <= text.y);
-    }
-
-    handleMouseDown = (e) => {
-        console.log(this.state.texts);
-        e.preventDefault();
-        var offset, offsetX, offsetY;
-        const { texts, canvas } = this.state;
-        offset = this.getPos(canvas);
-        offsetX = offset.x
-        offsetY = offset.y
-        this.startX = parseInt(e.clientX - offsetX);
-        this.startY = parseInt(e.clientY - offsetY);
-        // console.log(offsetX, offsetY, e.clientX, e.clientY)
-
-        for (var i = 0; i < texts.length; i++) {
-            if (this.textHittest(this.startX, this.startY, i)) {
-                this.selectedText = i;
-            }
-        }
-    }
-
-    handleMouseMove = (e) => {
-        e.preventDefault()
-        var { canvas } = this.state;
-        var offset, offsetX, offsetY, dx, dy;
-        offset = this.getPos(canvas);
-        offsetX = offset.x;
-        offsetY = offset.y;
-        var mouseX, mouseY
-        mouseX = parseInt(e.clientX - offsetX);
-        mouseY = parseInt(e.clientY - offsetY);
-        // Put your mousemove stuff here
-        dx = parseInt(mouseX - this.startX);
-        dy = parseInt(mouseY - this.startY);
-        // console.log("MouseMove",dx,dy,this.startX,this.startY,mouseX,mouseY,offsetX,offsetY, mouseX-this.startX);
-        var texts = [...this.state.texts]
-        texts[this.selectedText].x += dx;
-        texts[this.selectedText].y += dy;
-        this.startX = mouseX;
-        this.startY = mouseY;
-        this.setState({ texts })
-    }
-
-    handleMouseUp = (e) => {
-        e.preventDefault();
-        this.selectedText = -1;
-    }
-    handleMouseOut = (e) => {
-        e.preventDefault();
-        this.selectedText = -1;
     }
 
     componentDidMount = () => {
-        const { url } = this.state
-        var canvas = document.getElementById("my-canvas")
-        var context = canvas.getContext("2d");
+        const { imageData } = this.state
         var image = new Image()
-        image.src = url 
-        // console.log(image.src)
+        image.src = imageData.url
+        image.crossOrigin = "anonymous"
         fetch("https://api.imgflip.com/get_memes")
         .then(response => response.json())
         .then(response => {
             const { memes } = response.data
-            this.setState({ allMemeImgs: memes, image, canvas,context })
-        }).then( () => {
-
-            canvas.onmousedown = (e) => {
-                e.preventDefault();
-                this.handleMouseDown(e)
-            }
-
-            canvas.onmousemove  = (e) => {
-                e.preventDefault();
-                if(this.selectedText!==-1){
-                    this.handleMouseMove(e)
-                }
-            }
-         
-            canvas.onmouseup = (e) => {
-                e.preventDefault();
-                this.handleMouseUp(e);
-            }
-          
-            canvas.onmouseout = (e) => {
-                e.preventDefault();
-                this.handleMouseOut(e);
-            }
-        })
-    }
-    
-    componentDidUpdate = () => {
-        this.setImage()
+            imageData.object = image
+            this.setState({ allMemeImgs: memes, imageData}) 
+        });
     }
 
-    setImage = () => {
-        const { image, texts, height, width, url, maxHeight } = this.state
-        var canvas = document.getElementById("my-canvas")
-        var context = canvas.getContext("2d");
-        // context.clearRect(0, 0, canvas.width, canvas.height);
-        image.src = url;
+    setImage = (layer, imageData) => {
+        var canvas = layer.getCanvas()
+        var context = canvas.getContext("2d")
+        var image;
+        if(imageData.object==null)
+            image = new Image();
+        else
+            image = imageData.object
+        image.src = imageData.url
         image.crossOrigin = "anonymous"
-        const { newheight, newwidth } = checkImageHeight(width, height, maxHeight);
         image.onload = () => {
-            canvas.height = newheight
-            canvas.width = newwidth
-            context.drawImage(image, 0, 0, width, height, 0, 0, newwidth, newheight);
-            for (var i = 0; i < texts.length; i++) {
-                const { text, color, borderColor, x, y, size } = texts[i];
-                context.font = `${size}px impact, sans-serif`
-                context.strokeStyle = borderColor
-                context.strokeText(text, x, y)
-                context.fillStyle = color
-                context.fillText(text, x, y)
-            }
+            context.drawImage(image, 0, 0, image.width, image.height, 0, 0, imageData.width, imageData.height)        
         }
     }
-    
+
     handleColorChange = (i, event) => {
         const { name, value } = event.target
 
         setTimeout(() => {
             var texts = [...this.state.texts];
-            texts[i].color = value; 
+            texts[i].fillColor = value; 
 
             this.setState({ [name]: value })
         }, 250);
@@ -210,49 +75,22 @@ class MemeGenerator extends Component {
 
         setTimeout(() => {
             var texts = [...this.state.texts];
-            texts[i].borderColor = value; 
+            texts[i].strokeColor = value; 
 
             this.setState({ [name]: value })
         }, 250);
     }
 
-    
-
-    handleChange = (i, event, eventType) => {
-        var canvas = document.getElementById("my-canvas")
-        var context = canvas.getContext("2d");
+    handleTextChange = (i, event) => {
+        event.preventDefault()
         const { value } = event.target
         console.log(this.state.texts, value);
         var texts = [...this.state.texts];
-        switch(eventType){
-            case "text":
-                context.font = `${texts[i].size}px impact, sans-serif`
-                texts[i].text = value;
-                break;
-            case "size":
-                context.font = `${value}px impact, sans-serif`
-                texts[i].size = value;
-                break;
-            default:
-                break;
-        }
-        var canvasText = context.measureText(texts[i].text);
-        console.log(context.measureText(value))
-        texts[i].width = canvasText.width;
-        texts[i].height = canvasText.actualBoundingBoxAscent + canvasText.actualBoundingBoxDescent;
-        this.setState({ texts })
+        texts[i].text = value;
+        this.setText(texts);
     }
 
-    handleTextChange = (i, event) => {
-        event.preventDefault()
-        var type = "text";
-        this.handleChange(i, event, type);
-    }
-
-    handleTextSizeChange = (i, event) => {
-        event.preventDefault()
-        this.handleChange(i, event, "size");
-    }
+    setText = (text) => this.setState(text)
 
     handleAddText = (event) => {
         event.preventDefault()
@@ -260,13 +98,11 @@ class MemeGenerator extends Component {
         texts.push({
             id:texts.length,
             text: "",
-            color: "#000000",
-            borderColor: "#FFFFFF",
+            fillColor: "#000000",
+            strokeColor: "#FFFFFF",
             x:50, 
             y:50,
-            height: null, 
-            width: null,
-            size: 30
+            fontSize: 30
         })
         this.setState({ texts });
     }
@@ -281,7 +117,17 @@ class MemeGenerator extends Component {
         event.preventDefault()
         const randNum = Math.floor(Math.random() * this.state.allMemeImgs.length)
         const { url, width, height } = this.state.allMemeImgs[randNum]
-        this.setState({ url: url, width: width, height: height, updateImage: true})
+        const {imageData} = this.state
+        var { newHeight, newWidth } = checkImageHeight(width, height, this.state.imageData.maxHeight)
+        console.log("Width",width, newWidth);
+        console.log("Height",height, newHeight);
+        
+        imageData.height = newHeight
+        imageData.width = newWidth
+        imageData.url = url
+        imageData.updateImage = true
+
+        this.setState({ imageData })
     }
 
     handleFileChange = (event) => {
@@ -295,7 +141,14 @@ class MemeGenerator extends Component {
         img.src = url;
     }
 
-
+    handleExport = (layer) => {
+        const uri = layer.current.toDataURL();
+        console.log(uri);
+        var link = document.createElement("a");
+        link.download = "meme.png";
+        link.href = uri;
+        link.click();
+    };
 
     render() {
         return (
@@ -311,7 +164,13 @@ class MemeGenerator extends Component {
                     handleRemoveText={ this.handleRemoveText }
                     handleTextSizeChange={ this.handleTextSizeChange }
                 />
-                <Canvas />
+                <Canvas 
+                    imageData = {this.state.imageData}
+                    texts = {this.state.texts}
+                    handleExport = {this.handleExport} 
+                    setImage = {this.setImage}
+                    setText={ this.setText } 
+                />
             </div>
         )
     }

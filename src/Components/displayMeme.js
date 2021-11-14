@@ -40,14 +40,14 @@ function displayMeme(props){
                             />
                         </Tooltip>
 
-                        <input
+                        {/* <input
                             className="input textSize"
                             type="number"
                             name={ text.size }
                             placeholder="Size"
                             value= { text.size }
                             onChange={ props.handleTextSizeChange.bind(this, text.id) }
-                        />
+                        /> */}
                     </div>
                 ))
             }
