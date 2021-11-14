@@ -47,14 +47,11 @@ header > p {
   flex-grow: 1;
 }
 
-.meme {
-  position: relative;
+.canvas {
   flex-grow: 1;
-  margin: auto 0;
-}
-
-.meme > img {
-  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .meme-form {
