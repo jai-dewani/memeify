@@ -21,6 +21,8 @@ const DragableText = ({ shapeProps, isSelected, onSelect, onChange }) => {
           ref={shapeRef}
           {...shapeProps}
           draggable
+          fillAfterStrokeEnabled
+          strokeScaleEnabled={false}
           onDragEnd={(e) => {
             onChange({
               ...shapeProps,

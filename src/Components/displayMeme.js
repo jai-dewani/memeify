@@ -1,7 +1,6 @@
 import React from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import { MdFileDownload, MdFileUpload, MdShuffle } from 'react-icons/md/index';
-import handleDownloadClick from '../Utils/downloadImage'
 
 function displayMeme(props){
     const {texts} = props.state;
@@ -17,7 +16,7 @@ function displayMeme(props){
                             name={text.text}
                             placeholder="Funny text goes here...."
                             value= {text.text }
-                            onChange={ props.handleTextChange.bind(this, text.id) }
+                            onChange={ props.handleChange.bind(this, text.id, "text") }
                         />
 
                         <Tooltip title='Text Color' placement='top-start' arrow>  
@@ -25,7 +24,7 @@ function displayMeme(props){
                                 className="colorPicker inverted"
                                 type="color"
                                 name="bottomColor"
-                                value={ text.color }
+                                value={ text.fill }
                                 onChange={ props.handleColorChange.bind(this, text.id) }
                             />
                         </Tooltip>
@@ -35,19 +34,18 @@ function displayMeme(props){
                                 className="colorPicker inverted"
                                 type="color"
                                 name="bottomBorderColor"
-                                value={ text.borderColor }
+                                value={ text.stroke }
                                 onChange={ props.handleBorderColorChange.bind(this, text.id) }
                             />
                         </Tooltip>
 
                         {/* <input
-                            className="input textSize"
+                            className="colorPicker inverted"
                             type="number"
-                            name={ text.size }
-                            placeholder="Size"
-                            value= { text.size }
-                            onChange={ props.handleTextSizeChange.bind(this, text.id) }
-                        /> */}
+                            name="stroke"
+                            value={ text.strokeWidth }
+                            onChange={ props.handleChange.bind(this, text.id, "strokeWidth") }
+                            /> */}
                     </div>
                 ))
             }
@@ -78,7 +76,7 @@ function displayMeme(props){
             </button>
             <button
                 type='submit'
-                onClick={handleDownloadClick}
+                onClick={props.handleDownloadClick}
                 className='inverted button'
             >
                 <MdFileDownload /> download

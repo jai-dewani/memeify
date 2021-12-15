@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import DragableText  from "./DragableText";
-import { Stage, Layer } from "react-konva";
-// import checkImageHeight from "../Utils/checkImageHeight";
+import { Stage, Layer, Image } from "react-konva";
+import DisplayMeme from './displayMeme'
 
 // props contains => imageData, texts, handleExport(layer), setImage(layer, image)
 const Canvas = (props) => {
-	// const [image, setImage] = React.useState(props.image);
-	const [texts, setTexts] = useState(props.texts)
 	const [selectedId, selectText] = useState(null);
 	const layerRef = useRef(null);
+	const stageRef = useRef(null);
 
 	const checkDoSelect = (e) => {
 		const clickedOnEmpty = e.target === e.target.getStage();
@@ -17,23 +16,45 @@ const Canvas = (props) => {
 		}
 	};
 
-	useEffect(() => {
-		props.setImage(layerRef.current,props.imageData);
-	})
+	const handleExport = (event) => {
+		event.preventDefault()
+		const uri = stageRef.current.toDataURL();
+		var link = document.createElement("a");
+		link.download = "meme.png";
+		link.href = uri;
+		link.click();
+	  };
 
 	return (
-		<div className="canvas inverted" >
+		<div className="memeRoot">
+			<DisplayMeme 
+				state={ props.state } 
+				handleRandomMemeClick={ props.handleRandomMemeClick } 
+				handleChange={ props.handleChange }
+				handleColorChange={ props.handleColorChange }
+				handleBorderColorChange={ props.handleBorderColorChange }
+				handleFileChange={ props.handleFileChange } 
+				handleAddText={ props.handleAddText }
+				handleRemoveText={ props.handleRemoveText }
+				handleTextSizeChange={ props.handleTextSizeChange }
+				handleDownloadClick = { handleExport }
+			/>
+			<div className="canvas inverted" >
 			<Stage 
-				width={props.imageData.width}
-				height={props.imageData.height}
+				width= { props.imageData.width }
+				height= { props.imageData.height }
+				onMouseDown= { checkDoSelect }
+				onTouchStart= { checkDoSelect }
+				ref = { stageRef }
 				onContentMouseover
-				onMouseDown={checkDoSelect}
-				onTouchStart={checkDoSelect}
 			>
-				<Layer ref={layerRef}>
-					
-				</Layer>
-				<Layer>
+				<Layer ref={layerRef} >
+					{console.log('a')}
+					<Image
+						x={0}
+						y={0}
+						image={props.imageData.object}
+					/>
 					{props.texts.map((text, i) => {
 						return (
 							<DragableText
@@ -51,7 +72,9 @@ const Canvas = (props) => {
 					})}
 				</Layer>
 			</Stage>
+			</div>
 		</div>
+		
 	);
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import DisplayMeme from './displayMeme'
+
 import Canvas from './Canvas'
 import checkImageHeight from "../Utils/checkImageHeight"
 
@@ -11,8 +11,9 @@ class MemeGenerator extends Component {
                 {
                     id: 0,
                     text: "",
-                    fillColor: "#000000",
-                    strokeColor: "#FFFFFF",
+                    fill: "#000000",
+                    stroke: "#FFFFFF",
+                    strokeWidth: 1,
                     fontSize: 30,
                     x:250, 
                     y:50
@@ -44,27 +45,12 @@ class MemeGenerator extends Component {
         });
     }
 
-    setImage = (layer, imageData) => {
-        var canvas = layer.getCanvas()
-        var context = canvas.getContext("2d")
-        var image;
-        if(imageData.object==null)
-            image = new Image();
-        else
-            image = imageData.object
-        image.src = imageData.url
-        image.crossOrigin = "anonymous"
-        image.onload = () => {
-            context.drawImage(image, 0, 0, image.width, image.height, 0, 0, imageData.width, imageData.height)        
-        }
-    }
-
     handleColorChange = (i, event) => {
         const { name, value } = event.target
 
         setTimeout(() => {
             var texts = [...this.state.texts];
-            texts[i].fillColor = value; 
+            texts[i].fill = value; 
 
             this.setState({ [name]: value })
         }, 250);
@@ -75,20 +61,32 @@ class MemeGenerator extends Component {
 
         setTimeout(() => {
             var texts = [...this.state.texts];
-            texts[i].strokeColor = value; 
+            texts[i].stroke = value; 
 
             this.setState({ [name]: value })
         }, 250);
     }
 
-    handleTextChange = (i, event) => {
-        event.preventDefault()
+    handleChange = (i, type, event) => {
+        console.log(i)
+        console.log(event);
+        console.log(type);
         const { value } = event.target
-        console.log(this.state.texts, value);
         var texts = [...this.state.texts];
-        texts[i].text = value;
+        switch(type){
+            case "text":
+                console.log(texts,value);
+                texts[i].text = value;
+                break; 
+            case "strokeWidth":
+                texts[i].strokeWidth = value;
+                break;
+            default: 
+                break;
+        }
         this.setText(texts);
     }
+
 
     setText = (text) => this.setState(text)
 
@@ -98,11 +96,12 @@ class MemeGenerator extends Component {
         texts.push({
             id:texts.length,
             text: "",
-            fillColor: "#000000",
-            strokeColor: "#FFFFFF",
+            fill: "#000000",
+            stroke: "#FFFFFF",
             x:50, 
             y:50,
-            fontSize: 30
+            fontSize: 30,
+            strokeWidth: 1
         })
         this.setState({ texts });
     }
@@ -119,15 +118,18 @@ class MemeGenerator extends Component {
         const { url, width, height } = this.state.allMemeImgs[randNum]
         const {imageData} = this.state
         var { newHeight, newWidth } = checkImageHeight(width, height, this.state.imageData.maxHeight)
-        console.log("Width",width, newWidth);
-        console.log("Height",height, newHeight);
-        
-        imageData.height = newHeight
-        imageData.width = newWidth
-        imageData.url = url
-        imageData.updateImage = true
+        console.log(width, height);
+        console.log(newWidth, newHeight);
 
-        this.setState({ imageData })
+        var imageObj = new Image();
+        imageObj.crossOrigin = "Anonymous"
+        imageObj.height = imageData.height = newHeight
+        imageObj.width = imageData.width = newWidth
+        imageObj.src = imageData.url = url
+        imageData.updateImage = true
+        imageData.object = imageObj
+
+        imageObj.onload = () => this.setState({ imageData })
     }
 
     handleFileChange = (event) => {
@@ -143,7 +145,6 @@ class MemeGenerator extends Component {
 
     handleExport = (layer) => {
         const uri = layer.current.toDataURL();
-        console.log(uri);
         var link = document.createElement("a");
         link.download = "meme.png";
         link.href = uri;
@@ -152,26 +153,23 @@ class MemeGenerator extends Component {
 
     render() {
         return (
-            <div className="memeRoot">
-                <DisplayMeme 
-                    state={ this.state } 
-                    handleRandomMemeClick={ this.handleRandomMemeClick } 
-                    handleTextChange={ this.handleTextChange }
-                    handleColorChange={ this.handleColorChange }
-                    handleBorderColorChange={ this.handleBorderColorChange }
-                    handleFileChange={ this.handleFileChange } 
-                    handleAddText={ this.handleAddText }
-                    handleRemoveText={ this.handleRemoveText }
-                    handleTextSizeChange={ this.handleTextSizeChange }
-                />
-                <Canvas 
-                    imageData = {this.state.imageData}
-                    texts = {this.state.texts}
-                    handleExport = {this.handleExport} 
-                    setImage = {this.setImage}
-                    setText={ this.setText } 
-                />
-            </div>
+            <Canvas 
+                state={ this.state } 
+                handleRandomMemeClick={ this.handleRandomMemeClick } 
+                handleChange={ this.handleChange }
+                handleColorChange={ this.handleColorChange }
+                handleBorderColorChange={ this.handleBorderColorChange }
+                handleFileChange={ this.handleFileChange } 
+                handleAddText={ this.handleAddText }
+                handleRemoveText={ this.handleRemoveText }
+                handleTextSizeChange={ this.handleTextSizeChange }
+
+                imageData = {this.state.imageData}
+                texts = {this.state.texts}
+                handleExport = {this.handleExport} 
+                setImage = {this.setImage}
+                setText={ this.setText } 
+            />
         )
     }
 }
