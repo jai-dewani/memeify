@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-
 import Canvas from './Canvas'
+
 import checkImageHeight from "../Utils/checkImageHeight"
 
 class MemeGenerator extends Component {
