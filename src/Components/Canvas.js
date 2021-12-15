@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import DragableText  from "./DragableText";
 import { Stage, Layer, Image } from "react-konva";
-import DisplayMeme from './displayMeme'
+import DisplayMeme from './DisplayMeme'
 
 // props contains => imageData, texts, handleExport(layer), setImage(layer, image)
 const Canvas = (props) => {
