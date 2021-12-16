@@ -68,14 +68,10 @@ class MemeGenerator extends Component {
     }
 
     handleChange = (i, type, event) => {
-        console.log(i)
-        console.log(event);
-        console.log(type);
         const { value } = event.target
         var texts = [...this.state.texts];
         switch(type){
             case "text":
-                console.log(texts,value);
                 texts[i].text = value;
                 break; 
             case "strokeWidth":
@@ -118,9 +114,7 @@ class MemeGenerator extends Component {
         const { url, width, height } = this.state.allMemeImgs[randNum]
         const {imageData} = this.state
         var { newHeight, newWidth } = checkImageHeight(width, height, this.state.imageData.maxHeight)
-        console.log(width, height);
-        console.log(newWidth, newHeight);
-
+        
         var imageObj = new Image();
         imageObj.crossOrigin = "Anonymous"
         imageObj.height = imageData.height = newHeight
