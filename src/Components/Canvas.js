@@ -10,7 +10,7 @@ const Canvas = (props) => {
 	const stageRef = useRef(null);
 
 	const checkDoSelect = (e) => {
-		const clickedOnEmpty = e.target === e.target.getStage();
+		const clickedOnEmpty = e.target.index === 0;
 		if (clickedOnEmpty) {
 			selectText(null);
 		}
@@ -49,7 +49,6 @@ const Canvas = (props) => {
 				onContentMouseover
 			>
 				<Layer ref={layerRef} >
-					{console.log('a')}
 					<Image
 						x={0}
 						y={0}
